@@ -42,20 +42,12 @@ but they will be installed by pip.
 
 ## Installation
 
-~~ - Install by using pip:                                                             ~~
-~~   The package is named `ueberzug`                                                   ~~
-~~ - Packages of linux distributions:                                                  ~~
-~~   At least one packager applies patches to my code.                                 ~~
-~~   So if there are issues uninstall it and install it via pip.                       ~~
-~~   Actually I think it's not fine that they call it ueberzug after changing the code.~~ 
-~~   As bugs introduced by them look like they are part of my work.                    ~~
-
 > **Note**: The original author of the library burned out and removed it from pip repositories. To install it on `debian`:
 
 1. `sudo apt install libx11-dev`
 1. `sudo apt install libxext-dev`
 1. `sudo apt install libxres-dev`
-1. 'pip install setuptools`
+1. `pip install setuptools`
 1. `git clone https://github.com/WhiteBlackGoose/ueberzug-latest && cd ueberzug-latest`
 1. `sudo pip install -e .`
 
