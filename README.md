@@ -24,7 +24,7 @@ Advantages to w3mimgdisplay:
   * [Libraries](#libraries)
     + [~~Bash~~ (deprecated)](#bash)
     + [Python](#python)
-    + [Python Urwid](https://github.com/seebye/urwid-ueberzogen)
+    + [Python Urwid](https://github.com/doctorfree/urwid-ueberzogen-mpplus)
   * [Examples](#examples)
 
 
@@ -48,8 +48,8 @@ but they will be installed by pip.
 1. `sudo apt install libxext-dev`
 1. `sudo apt install libxres-dev`
 1. `pip install setuptools`
-1. `git clone https://github.com/WhiteBlackGoose/ueberzug-latest && cd ueberzug-latest`
-1. `sudo pip install -e .`
+1. `git clone https://github.com/doctorfree/ueberzug-mpplus && cd ueberzug-latest`
+1. `python3 -m pip install -e .`
 
 Note: You can improve the performance of image manipulation functions
 by using [pillow-simd](https://github.com/uploadcare/pillow-simd) instead of pillow.
@@ -220,8 +220,6 @@ import ueberzug.lib.v0 as ueberzug
    | automatic\_transmission  | bool | Yes    | Transmit commands instantly on changing a placement. If it's disabled commands won't be transmitted till a lazy_drawing or synchronous_lazy_drawing with-statement was left or request_transmission(force=True) was called. Default: True |
 
 
-
-
 ### Examples
 
 Command formats:
@@ -311,6 +309,6 @@ Python library:
 
 Scripts:
 
-- fzf with image preview: https://github.com/seebye/ueberzug/blob/master/examples/fzfimg.sh
-- Mastodon viewer: https://github.com/seebye/ueberzug/blob/master/examples/mastodon.sh
-- **F**zf **M**pd **U**ser **I**nterface: https://github.com/seebye/fmui
+- fzf with image preview: https://github.com/doctorfree/ueberzug-mpplus/blob/master/examples/fzfimg.sh
+- Mastodon viewer: https://github.com/doctorfree/ueberzug-mpplus/blob/master/examples/mastodon.sh
+- **F**zf **M**pd **U**ser **I**nterface: https://github.com/doctorfree/fmui-mpplus
