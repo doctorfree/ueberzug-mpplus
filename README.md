@@ -48,7 +48,7 @@ but they will be installed by pip.
 1. `sudo apt install libxext-dev`
 1. `sudo apt install libxres-dev`
 1. `pip install setuptools`
-1. `git clone https://github.com/doctorfree/ueberzug-mpplus && cd ueberzug-latest`
+1. `git clone https://github.com/doctorfree/ueberzug-mpplus && cd ueberzug-mpplus`
 1. `python3 -m pip install -e .`
 
 Note: You can improve the performance of image manipulation functions
