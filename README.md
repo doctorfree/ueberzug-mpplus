@@ -1,21 +1,26 @@
 # Überzug
 
-Überzug is a command line util
-which allows to draw images on terminals by using child windows.
+Überzug is a command line utility which enables drawing of images in character terminal windows by using child windows. The original project at https://github.com/seebye/ueberzug was closed by the author and this is a continuation of that project designed to serve as one of the ways [MusicPlayerPlus](https://github.com/doctorfree/MusicPlayerPlus) can display album cover art.
 
-Advantages to w3mimgdisplay:
-- no race conditions as a new window is created to display images
-- expose events will be processed,  
-  so images will be redrawn on switch workspaces
-- tmux support (excluding multi pane windows)
-- terminals without the WINDOWID environment variable are supported
-- chars are used as position - and size unit
-- no memory leak (/ unlimited cache)
+The method of drawing images employed here will not work in Wayland and other protocols have been developed that make this method somewhat obsolete. However, it is still used by some projects so its continued availability is provided here.
+
+This Python module gets installed automatically as part of the MusicPlayerPlus initialization process. If this module is needed outside of MusicPlayerPlus then it can be installed following the instructions below.
+
+Advantages over w3mimgdisplay:
+
+- No race conditions as a new window is created to display images
+- Expose events will be processed, so images will be redrawn on switch workspaces
+- Provides tmux support
+- Terminals without the WINDOWID environment variable are supported
+- Chars are used as position - and size unit
+- No memory leak (/ unlimited cache)
 
 ## Overview
 
 - [Dependencies](#dependencies)
 - [Installation](#installation)
+- [Building ueberzug from source](#building-ueberzug-from-source)
+- [Removal](#removal)
 - [Communication](#communication)  
   * [Command formats](#command-formats)
   * [Actions](#actions)
@@ -37,29 +42,63 @@ Libraries used in the c extension:
 - Xext
 - XRes
 
-There are also other direct dependencies,  
-but they will be installed by pip.
+There are also other direct dependencies, but they will be installed by pip.
 
-## Installation
-
-> **Note**: The original author of the library burned out and removed it from pip repositories. To install it on `debian`:
+On Debian based systems, install the build dependencies with:
 
 1. `sudo apt install libx11-dev`
 1. `sudo apt install libxext-dev`
 1. `sudo apt install libxres-dev`
-1. `pip install setuptools`
-1. `git clone https://github.com/doctorfree/ueberzug-mpplus && cd ueberzug-mpplus`
-1. `python3 -m pip install -e .`
 
-Note: You can improve the performance of image manipulation functions
-by using [pillow-simd](https://github.com/uploadcare/pillow-simd) instead of pillow.
+On Arch based systems, install the build dependencies with:
+
+1. `sudo pacman -S libx11`
+1. `sudo pacman -S libxext`
+1. `sudo pacman -S libxres`
+
+Install the Python `setuptools` and `build` modules:
+
+1. `python3 -m pip install setuptools`
+1. `python3 -m pip install --upgrade build`
+
+Note: You can improve the performance of image manipulation functions by using [pillow-simd](https://github.com/uploadcare/pillow-simd) instead of pillow.
+
+## Installation
+
+Download the [latest ueberzug wheel](https://github.com/doctorfree/ueberzug-mpplus/releases) for your platform.
+
+Install the ueberzug wheel by executing the command:
+
+```bash
+python3 -m pip install /path/to/ueberzug-<version>-<platform>.whl
+```
+
+## Building ueberzug from source
+
+Überzug can be compiled, packaged, and installed from the source code repository. This should be done as a normal user with `sudo` privileges:
+
+```
+# Retrieve the source code from the repository
+git clone https://github.com/doctorfree/ueberzug-mpplus.git
+# Enter the mppcava source directory
+cd ueberzug-mpplus
+# Compile ueberzug and create an installation wheel
+./mkwheel
+# Install ueberzug and its dependencies
+python3 -m pip install dist/ueberzug*.whl
+```
+
+## Removal
+
+Removal of the package can be accomplished by issuing the command:
+
+```bash
+python3 -m pip uninstall ueberzug
+```
 
 ## Communication
 
-The communication is realised via stdin.  
-A command is a request to execute a specific action with the passed arguments.  
-(Therefore a command has to contain a key value pair "action": action_name)  
-Commands are separated with a line break.
+The communication is realised via stdin. A command is a request to execute a specific action with the passed arguments. Therefore a command has to contain a key value pair "action": action_name. Commands are separated with a line break.
 
 ### Command formats
 
