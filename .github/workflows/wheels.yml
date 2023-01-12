@@ -19,14 +19,13 @@ jobs:
         with:
           platforms: all
 
-      - name: Install dependencies
-        run: sudo apt install -y libx11-dev libxext-dev libxres-dev
-
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.11.4
         env:
           # On an Linux Intel runner with qemu installed, build Intel and ARM wheels
           CIBW_ARCHS_LINUX: "auto aarch64"
+          # On an Linux Intel runner install X11 dev dependencies
+          CIBW_BEFORE_ALL_LINUX: sudo apt install -y libx11-dev libxext-dev libxres-dev
         # with:
         #   package-dir: .
         #   output-dir: wheelhouse
