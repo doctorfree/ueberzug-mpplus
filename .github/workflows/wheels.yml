@@ -1,6 +1,12 @@
 name: Build
 
-on: [push, pull_request]
+# To publish when a (published) GitHub Release is created, use the following:
+on:
+  release:
+    types:
+      - published
+# Alternatively, build on every branch push, tag push, and pull request change:
+# on: [push, pull_request]
 
 jobs:
   build_wheels:
