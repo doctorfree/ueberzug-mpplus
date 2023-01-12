@@ -15,7 +15,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt install -y libx11-dev libxext-dev libxres-dev
+          apt install -y libx11-dev libxext-dev libxres-dev
           python -m pip install --upgrade pip
           python -m pip install --upgrade wheel
 
