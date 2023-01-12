@@ -1,0 +1,20 @@
+#!/bin/bash
+
+have_python3=`type -p python3`
+if [ "${have_python3}" ]
+then
+  PYTHON="python3"
+else
+  have_python=`type -p python`
+  if [ "${have_python}" ]
+  then
+    PYTHON="python"
+  else
+    echo "Python not found. Exiting."
+    exit 1
+  fi
+fi
+
+${PYTHON} -m pip install --upgrade build
+
+${PYTHON} -m build
