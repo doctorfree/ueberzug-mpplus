@@ -109,3 +109,11 @@ test.sh
 test.sh.bak
 
 !ueberzug/lib/
+
+# vim files
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+tmux*log
+.DS_Store
