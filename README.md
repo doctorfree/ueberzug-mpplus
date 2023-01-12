@@ -56,10 +56,16 @@ On Arch based systems, install the build dependencies with:
 1. `sudo pacman -S libxext`
 1. `sudo pacman -S libxres`
 
+On RPM based systems, install the build dependencies with:
+
+1. `sudo dnf install libX11-devel`
+1. `sudo dnf install libXext-devel`
+1. `sudo dnf install libXres-devel`
+
 Install the Python `setuptools` and `build` modules:
 
-1. `python3 -m pip install setuptools`
-1. `python3 -m pip install --upgrade build`
+1. `python3 -m pip install --user setuptools`
+1. `python3 -m pip install --user --upgrade build`
 
 Note: You can improve the performance of image manipulation functions by using [pillow-simd](https://github.com/uploadcare/pillow-simd) instead of pillow.
 
@@ -70,7 +76,7 @@ Download the [latest ueberzug wheel](https://github.com/doctorfree/ueberzug-mppl
 Install the ueberzug wheel by executing the command:
 
 ```bash
-python3 -m pip install /path/to/ueberzug-<version>-<platform>.whl
+python3 -m pip install --user /path/to/ueberzug-<version>-<platform>.whl
 ```
 
 ## Building ueberzug from source
@@ -85,7 +91,7 @@ cd ueberzug-mpplus
 # Compile ueberzug and create an installation wheel
 ./mkwheel
 # Install ueberzug and its dependencies
-python3 -m pip install dist/ueberzug*.whl
+python3 -m pip install --user dist/ueberzug*.whl
 ```
 
 ## Removal
