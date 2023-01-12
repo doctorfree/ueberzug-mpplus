@@ -19,6 +19,7 @@ ${PYTHON} -m pip install --upgrade build
 
 ${PYTHON} -m build
 
+exit 0
 arch=
 centos=
 debian=
@@ -104,10 +105,10 @@ else
   fi
 fi
 
-cd dist
-wheel=`echo *.whl`
-name=`echo $wheel | awk -F '-' ' { print $1 } '`
-version=`echo $wheel | awk -F '-' ' { print $2 } '`
-arch=`echo $wheel | awk -F '-' ' { print $5 } '`
-echo "Moving dist/$wheel to dist/${name}-${version}-${platform}-${arch}"
-mv $wheel ${name}-${version}-${platform}-${arch}
+# cd dist
+# wheel=`echo *.whl`
+# name=`echo $wheel | awk -F '-' ' { print $1 } '`
+# version=`echo $wheel | awk -F '-' ' { print $2 } '`
+# arch=`echo $wheel | awk -F '-' ' { print $5 } '`
+# echo "Moving dist/$wheel to dist/${name}-${version}-${platform}-${arch}"
+# mv $wheel ${name}-${version}-${platform}-${arch}
