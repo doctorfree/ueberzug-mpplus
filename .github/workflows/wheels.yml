@@ -14,10 +14,9 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Install dependencies
-        run: |
-          apt install -y libx11-dev libxext-dev libxres-dev
-          python -m pip install --upgrade pip
-          python -m pip install --upgrade wheel
+        run: sudo apt install -y libx11-dev libxext-dev libxres-dev
+        with:
+          platforms: all
 
       - name: Set up QEMU
         if: runner.os == 'Linux'
