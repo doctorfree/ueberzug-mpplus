@@ -30,6 +30,7 @@ jobs:
             apt-get install --no-install-recommends -y libx11-dev libxext-dev libxres-dev
             python -m pip install --upgrade build
             python -m build
+
     - uses: actions/upload-artifact@v3
-        with:
-          path: ./dist/*.whl
+      with:
+        path: ./dist/*.whl
