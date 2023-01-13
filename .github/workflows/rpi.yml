@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        arch: [armv6l, armv7l, aarch64]
+        arch: [armv6l, armv7l]
         include:
         - arch: armv6l
           cpu: arm1176
@@ -15,10 +15,6 @@ jobs:
           cpu: cortex-a7
           base_image: raspios_lite:latest
           cpu_info: raspberrypi_3b
-        - arch: aarch64
-          cpu: cortex-a53
-          base_image: raspios_lite_arm64:latest
-          cpu_info: raspberrypi_zero2_w_arm64_w
     steps:
     - uses: pguyot/arm-runner-action@v2
       with:
