@@ -28,9 +28,14 @@ jobs:
       - name: Build wheels
         uses: pypa/cibuildwheel@v2.11.4
         env:
-          # On an Linux Intel runner with qemu installed, build Intel and ARM wheels
-          CIBW_ARCHS_LINUX: "auto aarch64"
-          # On an Linux Intel runner install X11 dev dependencies
+          # On a Linux Intel runner with qemu installed
+          # Build native archs ('auto'), and some emulated ones
+          # CIBW_ARCHS_LINUX: auto aarch64 ppc64le s390x
+          # CIBW_ARCHS_LINUX: auto aarch64
+          CIBW_ARCHS_LINUX: auto
+          # Disable building PyPy wheels on all platforms
+          CIBW_SKIP: pp*
+          # On a Linux Intel runner install X11 dev dependencies
           CIBW_BEFORE_ALL_LINUX: yum install -y libX11-devel libXext-devel libXres-devel || apt-get install -y libx11-dev libxext-dev libxres-dev || apk add --upgrade libx11-dev libxext-dev libxres-dev 
         # with:
         #   package-dir: .
