@@ -2,6 +2,7 @@ name: Build
 
 # To publish when a (published) GitHub Release is created, use the following:
 on:
+  workflow_dispatch:
   release:
     types:
       - published
