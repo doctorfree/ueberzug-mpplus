@@ -1,3 +1,5 @@
+[![Wheels Build](https://github.com/doctorfree/ueberzug-mpplus/actions/workflows/wheels.yml/badge.svg)](https://github.com/doctorfree/ueberzug-mpplus/actions/workflows/wheels.yml)
+
 # Überzug
 
 Überzug is a command line utility which enables drawing of images in character terminal windows by using child windows. The original project at https://github.com/seebye/ueberzug was closed by the author and this is a continuation of that project designed to serve as one of the ways [MusicPlayerPlus](https://github.com/doctorfree/MusicPlayerPlus) can display album cover art.
