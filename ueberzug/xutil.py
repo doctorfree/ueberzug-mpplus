@@ -1,6 +1,5 @@
 """This module contains x11 utils"""
 import functools
-import asyncio
 
 import ueberzug.tmux_util as tmux_util
 import ueberzug.terminal as terminal
